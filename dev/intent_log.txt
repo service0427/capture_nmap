@@ -1,0 +1,17 @@
+     ____
+    / _  |   Frida 17.7.3 - A world-class dynamic instrumentation toolkit
+   | (_| |
+    > _  |   Commands:
+   /_/ |_|       help      -> Displays the help system
+   . . . .       object?   -> Display information about 'object'
+   . . . .       exit/quit -> Exit
+   . . . .
+   . . . .   More info at https://frida.re/docs/home/
+   . . . .
+   . . . .   Connected to SM A165N (id=RF9XC00EXGM)
+Spawning `com.rosteam.gpsemulator`...
+Spawned `com.rosteam.gpsemulator`. Resuming main thread!
+[SM A165N::com.rosteam.gpsemulator ]-> [*] GPS Emulator Intent Tracker Active
+Process terminated
+
+Thank you for using Frida!
