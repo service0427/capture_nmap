@@ -99,7 +99,7 @@ fi
 # [Step 2] GPS Simulation (외부 주행 스크립트 트리거)
 if [ "$GPS_MODE" = true ]; then
     echo "[-] Initiating GPS Simulation sequence..."
-    bash ./dev/reset_and_inject.sh
+    bash ./lib/utils/reset_and_inject.sh
     sleep 3
 fi
 
