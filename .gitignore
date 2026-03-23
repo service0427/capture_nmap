@@ -1,0 +1,29 @@
+# Logs & Temporary Files
+logs/
+*.log
+*.pbf
+.nmap_ssaid
+.pdca-status.json
+
+# APK & Decompiled Source
+apk/
+*.apk
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# IDE & System
+.vscode/
+.DS_Store
+.idea/
+
+# Development Screenshots
+dev/screenshots/
+dev/debug_view.xml
+dev/view.xml
+dev/nmap_list.xml
+dev/settings_bottom.xml
+
+# Local Memory
+.bkit/

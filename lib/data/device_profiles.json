@@ -1,0 +1,103 @@
+[
+  {
+    "model": "SM-S948N",
+    "name": "Galaxy S26 Ultra 5G",
+    "brand": "samsung",
+    "display": {
+      "width": "1440",
+      "height": "3120",
+      "density": "3.125"
+    },
+    "hardware_options": [
+      { "ram_gb": "12", "storage_gb": "256" },
+      { "ram_gb": "12", "storage_gb": "512" },
+      { "ram_gb": "16", "storage_gb": "1024" }
+    ],
+    "software_versions": [
+      {
+        "osver": "16",
+        "build_id": "BP1A.260205.001",
+        "display_id": "S948NKSS1AZC7"
+      }
+    ]
+  },
+  {
+    "model": "SM-S942N",
+    "name": "Galaxy S26",
+    "brand": "samsung",
+    "display": {
+      "width": "1080",
+      "height": "2340",
+      "density": "2.6"
+    },
+    "hardware_options": [
+      { "ram_gb": "12", "storage_gb": "256" },
+      { "ram_gb": "12", "storage_gb": "512" }
+    ],
+    "software_versions": [
+      {
+        "osver": "16",
+        "build_id": "BP1A.260205.001",
+        "display_id": "S942NKSS1AZC7"
+      }
+    ]
+  },
+  {
+    "model": "SM-S911N",
+    "name": "Galaxy S23",
+    "brand": "samsung",
+    "display": {
+      "width": "1080",
+      "height": "2340",
+      "density": "2.65"
+    },
+    "hardware_options": [
+      { "ram_gb": "8", "storage_gb": "128" },
+      { "ram_gb": "8", "storage_gb": "256" },
+      { "ram_gb": "8", "storage_gb": "512" }
+    ],
+    "software_versions": [
+      {
+        "osver": "16",
+        "build_id": "BP1A.260205.001",
+        "display_id": "S911NKSS7EZB2"
+      },
+      {
+        "osver": "15",
+        "build_id": "VP1A.250801.001",
+        "display_id": "S911NKSS6DYG8"
+      },
+      {
+        "osver": "14",
+        "build_id": "UP1A.231005.007",
+        "display_id": "S911NKSS6CYB3"
+      },
+      {
+        "osver": "13",
+        "build_id": "TP1A.220624.014",
+        "display_id": "S911NKSU2AWGJ"
+      }
+    ]
+  },
+  {
+    "model": "SM-S918N",
+    "name": "Galaxy S23 Ultra",
+    "brand": "samsung",
+    "display": {
+      "width": "1440",
+      "height": "3088",
+      "density": "3.5"
+    },
+    "hardware_options": [
+      { "ram_gb": "12", "storage_gb": "256" },
+      { "ram_gb": "12", "storage_gb": "512" }
+    ],
+    "software_versions": [
+      {
+        "osver": "14",
+        "build_id": "UP1A.231005.007",
+        "display_id": "S918NKSU2BWJA"
+      }
+    ]
+  }
+]

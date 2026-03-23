@@ -1,0 +1,198 @@
+{
+    "model": "SM-S921N",
+    "name": "Galaxy S24",
+    "brand": "samsung",
+    "display": {
+        "width": "1080",
+        "height": "2340",
+        "density": "2.625"
+    },
+    "hardware_options": [
+        {
+            "ram_gb": "8",
+            "storage_gb": "128"
+        },
+        {
+            "ram_gb": "8",
+            "storage_gb": "256"
+        },
+        {
+            "ram_gb": "12",
+            "storage_gb": "256"
+        },
+        {
+            "ram_gb": "8",
+            "storage_gb": "512"
+        }
+    ],
+    "software_versions": [
+        {
+            "osver": "16",
+            "build_date": "20250911101020",
+            "build_id": "BP1A.250901.001",
+            "display_id": "S921NKSU9CYI5"
+        },
+        {
+            "osver": "16",
+            "build_date": "20250929083341",
+            "build_id": "BP1A.250901.002",
+            "display_id": "S921NKSS9CYI9"
+        },
+        {
+            "osver": "16",
+            "build_date": "20251022180741",
+            "build_id": "BP1A.251001.003",
+            "display_id": "S921NKSSACYJ3"
+        },
+        {
+            "osver": "16",
+            "build_date": "20251108072041",
+            "build_id": "BP1A.251101.004",
+            "display_id": "S921NKSSBCYK2"
+        },
+        {
+            "osver": "16",
+            "build_date": "20251128133201",
+            "build_id": "BP1A.251201.005",
+            "display_id": "S921NKSSBCYL1"
+        },
+        {
+            "osver": "16",
+            "build_date": "20260107075701",
+            "build_id": "BP1A.260101.006",
+            "display_id": "S921NKSSCCZA1"
+        },
+        {
+            "osver": "16",
+            "build_date": "20260214043050",
+            "build_id": "BP1A.260205.007",
+            "display_id": "S921NKSSDCZB4"
+        },
+        {
+            "osver": "15",
+            "build_date": "20250328100042",
+            "build_id": "VP1A.250401.001",
+            "display_id": "S921NKSU5BYCG"
+        },
+        {
+            "osver": "15",
+            "build_date": "20250415134941",
+            "build_id": "VP1A.250401.002",
+            "display_id": "S921NKSU5BYD9"
+        },
+        {
+            "osver": "15",
+            "build_date": "20250425172110",
+            "build_id": "VP1A.250501.003",
+            "display_id": "S921NKSS6BYDF"
+        },
+        {
+            "osver": "15",
+            "build_date": "20250528112211",
+            "build_id": "VP1A.250601.004",
+            "display_id": "S921NKSS7BYE9"
+        },
+        {
+            "osver": "15",
+            "build_date": "20250627132810",
+            "build_id": "VP1A.250701.005",
+            "display_id": "S921NKSS8BYF1"
+        },
+        {
+            "osver": "15",
+            "build_date": "20250729135040",
+            "build_id": "VP1A.250801.006",
+            "display_id": "S921NKSS9BYG8"
+        },
+        {
+            "osver": "14",
+            "build_date": "20231229152911",
+            "build_id": "UP1A.231229.001",
+            "display_id": "S921NKSU1AWM9"
+        },
+        {
+            "osver": "14",
+            "build_date": "20240213184310",
+            "build_id": "UP1A.240201.002",
+            "display_id": "S921NKSU1AXB5"
+        },
+        {
+            "osver": "14",
+            "build_date": "20240222084410",
+            "build_id": "UP1A.240201.003",
+            "display_id": "S921NKSU1AXBA"
+        },
+        {
+            "osver": "14",
+            "build_date": "20240318100600",
+            "build_id": "UP1A.240401.004",
+            "display_id": "S921NKSU1AXCA"
+        },
+        {
+            "osver": "14",
+            "build_date": "20240507165251",
+            "build_id": "UP1A.240501.005",
+            "display_id": "S921NKSS2AXE1"
+        },
+        {
+            "osver": "14",
+            "build_date": "20240528210940",
+            "build_id": "UP1A.240601.006",
+            "display_id": "S921NKSU2AXE4"
+        },
+        {
+            "osver": "14",
+            "build_date": "20240705120330",
+            "build_id": "UP1A.240701.007",
+            "display_id": "S921NKSU3AXFG"
+        },
+        {
+            "osver": "14",
+            "build_date": "20240801082111",
+            "build_id": "UP1A.240801.008",
+            "display_id": "S921NKSS3AXGJ"
+        },
+        {
+            "osver": "14",
+            "build_date": "20240823180110",
+            "build_id": "UP1A.240901.009",
+            "display_id": "S921NKSU3AXH7"
+        },
+        {
+            "osver": "14",
+            "build_date": "20241002182141",
+            "build_id": "UP1A.241001.010",
+            "display_id": "S921NKSS4AXJ1"
+        },
+        {
+            "osver": "14",
+            "build_date": "20241111105620",
+            "build_id": "UP1A.241101.011",
+            "display_id": "S921NKSU5AXK4"
+        },
+        {
+            "osver": "14",
+            "build_date": "20241127085810",
+            "build_id": "UP1A.241201.012",
+            "display_id": "S921NKSS5AXKA"
+        },
+        {
+            "osver": "14",
+            "build_date": "20241226082541",
+            "build_id": "UP1A.250101.013",
+            "display_id": "S921NKSS5AXL1"
+        },
+        {
+            "osver": "14",
+            "build_date": "20250122142841",
+            "build_id": "UP1A.250201.014",
+            "display_id": "S921NKSS5AYA1"
+        },
+        {
+            "osver": "14",
+            "build_date": "20250224133110",
+            "build_id": "UP1A.250301.015",
+            "display_id": "S921NKSS5AYB1"
+        }
+    ]
+}
