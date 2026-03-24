@@ -1,0 +1,96 @@
+{
+    "model": "SM-A826S",
+    "name": "Galaxy Quantum2",
+    "brand": "samsung",
+    "display": {
+        "width": "1440",
+        "height": "3200",
+        "density": "3.27"
+    },
+    "hardware_options": [
+        {
+            "ram_gb": "6",
+            "storage_gb": "128"
+        }
+    ],
+    "software_versions": [
+        {
+            "osver": "14",
+            "build_date": "20231220101910",
+            "build_id": "UP1A.231201.001",
+            "display_id": "A826SKSU4FWL2"
+        },
+        {
+            "osver": "14",
+            "build_date": "20240510104940",
+            "build_id": "UP1A.240501.002",
+            "display_id": "A826SKSU5GXE1"
+        },
+        {
+            "osver": "14",
+            "build_date": "20241031113830",
+            "build_id": "UP1A.241101.003",
+            "display_id": "A826SKSS6GXJ2"
+        },
+        {
+            "osver": "13",
+            "build_date": "20221116123700",
+            "build_id": "TP1A.221101.001",
+            "display_id": "A826SKSU2DVK2"
+        },
+        {
+            "osver": "13",
+            "build_date": "20230109113711",
+            "build_id": "TP1A.230101.002",
+            "display_id": "A826SKSS3DWA1"
+        },
+        {
+            "osver": "13",
+            "build_date": "20230217135010",
+            "build_id": "TP1A.230201.003",
+            "display_id": "A826SKSU3EWB4"
+        },
+        {
+            "osver": "13",
+            "build_date": "20230530170541",
+            "build_id": "TP1A.230601.004",
+            "display_id": "A826SKSU4EWE3"
+        },
+        {
+            "osver": "12",
+            "build_date": "20220111095610",
+            "build_id": "SP1A.211201.001",
+            "display_id": "A826SKSS2BUL5"
+        },
+        {
+            "osver": "12",
+            "build_date": "20220314152430",
+            "build_id": "SP1A.220301.002",
+            "display_id": "A826SKSU2CVC1"
+        },
+        {
+            "osver": "12",
+            "build_date": "20220411173801",
+            "build_id": "SP1A.220401.003",
+            "display_id": "A826SKSU2CVD3"
+        },
+        {
+            "osver": "12",
+            "build_date": "20220524145500",
+            "build_id": "SP1A.220601.004",
+            "display_id": "A826SKSU2CVE3"
+        },
+        {
+            "osver": "12",
+            "build_date": "20220727151650",
+            "build_id": "SP1A.220801.005",
+            "display_id": "A826SKSU2CVG4"
+        },
+        {
+            "osver": "11",
+            "build_date": "20210917095524",
+            "build_id": "RP1A.210901.001",
+            "display_id": "A826SKSU2AUI1"
+        }
+    ]
+}

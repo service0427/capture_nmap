@@ -41,9 +41,61 @@ LOG_SUFFIX=""
 [ "$GPS_MODE" = true ] && LOG_SUFFIX="${LOG_SUFFIX}-gps"
 [ "$NO_MITM" = true ] && LOG_SUFFIX="${LOG_SUFFIX}-nomitm"
 
-LOG_DIR="logs/${DATE_STR}/${TIME_STR}${LOG_SUFFIX}${MEMO:+-}${MEMO}"
+# [4] Random Identity & Device Profile (로그 디렉토리 생성 전에 프로필 확보)
+PTAG=""
+adb -s $DEVICE_ID shell su -c "setprop debug.nmap.model none" >/dev/null 2>&1
+adb -s $DEVICE_ID shell su -c "setprop debug.nmap.brand none" >/dev/null 2>&1
+adb -s $DEVICE_ID shell su -c "setprop debug.nmap.osver none" >/dev/null 2>&1
+adb -s $DEVICE_ID shell su -c "setprop debug.nmap.build_id none" >/dev/null 2>&1
+adb -s $DEVICE_ID shell su -c "setprop debug.nmap.display_id none" >/dev/null 2>&1
+adb -s $DEVICE_ID shell su -c "setprop debug.nmap.density none" >/dev/null 2>&1
+adb -s $DEVICE_ID shell su -c "setprop debug.nmap.width none" >/dev/null 2>&1
+adb -s $DEVICE_ID shell su -c "setprop debug.nmap.height none" >/dev/null 2>&1
+adb -s $DEVICE_ID shell su -c "setprop debug.nmap.storage none" >/dev/null 2>&1
+adb -s $DEVICE_ID shell su -c "setprop debug.nmap.ram none" >/dev/null 2>&1
+
+if [ "$RANDOM_MODE" = true ]; then
+    NEW_SSAID=$(cat /dev/urandom | tr -dc 'a-f0-9' | fold -w 16 | head -n 1)
+    NEW_IDFV=$(cat /proc/sys/kernel/random/uuid)
+    NEW_ADID=$(cat /proc/sys/kernel/random/uuid)
+    adb -s $DEVICE_ID shell su -c "setprop debug.nmap.ssaid $NEW_SSAID"
+    adb -s $DEVICE_ID shell su -c "setprop debug.nmap.idfv $NEW_IDFV"
+    adb -s $DEVICE_ID shell su -c "setprop debug.nmap.adid $NEW_ADID"
+    export NMAP_SPOOFED_ADID="$NEW_ADID"
+else
+    adb -s $DEVICE_ID shell su -c "setprop debug.nmap.ssaid none" >/dev/null 2>&1
+    adb -s $DEVICE_ID shell su -c "setprop debug.nmap.idfv none" >/dev/null 2>&1
+    adb -s $DEVICE_ID shell su -c "setprop debug.nmap.adid none" >/dev/null 2>&1
+fi
+
+if [ "$DEVICE_MODE" = true ]; then
+    echo "[-] Picking Random Device Profile..."
+    DEVICE_FILES=($(ls lib/data/devices/*.json))
+    SELECTED_FILE=${DEVICE_FILES[$(( RANDOM % ${#DEVICE_FILES[@]} ))]}
+    PROFILE_INFO=$(python3 <<PYEOF
+import json, random
+with open('$SELECTED_FILE') as f:
+    p = json.load(f)
+hw = random.choice(p['hardware_options'])
+sw = random.choice(p['software_versions'])
+props = {'model': p['model'], 'brand': p['brand'], 'osver': sw['osver'], 'build_id': sw['build_id'], 'display_id': sw['display_id'], 'density': p['display']['density'], 'width': p['display']['width'], 'height': p['display']['height'], 'storage': hw['storage_gb'], 'ram': hw['ram_gb']}
+for k, v in props.items():
+    print(f'adb -s $DEVICE_ID shell su -c "setprop debug.nmap.{k} \\\\"{v}\\\\""')
+print(f'PROFILE_TAG={sw["display_id"]}_{sw["osver"]}_{sw["build_id"]}')
+PYEOF
+)
+    COMMANDS=$(echo "$PROFILE_INFO" | grep -v "^PROFILE_TAG=")
+    PTAG=$(echo "$PROFILE_INFO" | grep "^PROFILE_TAG=" | cut -d= -f2)
+    eval "$COMMANDS"
+    P_MODEL=$(adb -s $DEVICE_ID shell getprop debug.nmap.model)
+    echo "    [✓] Profile Loaded: $P_MODEL"
+fi
+
+# 로그 디렉토리 생성 (프로필 태그 포함)
+LOG_DIR="logs/${DATE_STR}/${TIME_STR}${LOG_SUFFIX}${PTAG:+.}${PTAG}${MEMO:+-}${MEMO}"
 mkdir -p "$LOG_DIR"
 export CAPTURE_LOG_DIR="$(realpath "$LOG_DIR")"
+echo "    [✓] Log Dir → $LOG_DIR"
 
 cleanup() {
     trap '' INT TERM EXIT
@@ -59,7 +111,6 @@ trap cleanup INT TERM EXIT
 
 echo "============================================================"
 echo "   NAVER MAP SIMULATOR (v3.0 Stable - ORIGINAL)"
-echo "   Log Dir: $LOG_DIR"
 echo "============================================================"
 
 # [1] IP Rotation
@@ -88,46 +139,6 @@ if [ "$RESET_MODE" = true ]; then
     adb -s $DEVICE_ID shell su -c "rm -rf /data/data/$PKG_NAME/app_webview/Local\ Storage/*"
     adb -s $DEVICE_ID shell su -c "rm -rf /data/data/$PKG_NAME/app_webview/IndexedDB/*"
     echo "[✓] Search History & Identity Cleared."
-fi
-
-# [4] Random Identity & Device Profile
-adb -s $DEVICE_ID shell su -c "setprop debug.nmap.model none" >/dev/null 2>&1
-adb -s $DEVICE_ID shell su -c "setprop debug.nmap.brand none" >/dev/null 2>&1
-adb -s $DEVICE_ID shell su -c "setprop debug.nmap.osver none" >/dev/null 2>&1
-adb -s $DEVICE_ID shell su -c "setprop debug.nmap.build_id none" >/dev/null 2>&1
-adb -s $DEVICE_ID shell su -c "setprop debug.nmap.display_id none" >/dev/null 2>&1
-adb -s $DEVICE_ID shell su -c "setprop debug.nmap.density none" >/dev/null 2>&1
-adb -s $DEVICE_ID shell su -c "setprop debug.nmap.width none" >/dev/null 2>&1
-adb -s $DEVICE_ID shell su -c "setprop debug.nmap.height none" >/dev/null 2>&1
-adb -s $DEVICE_ID shell su -c "setprop debug.nmap.storage none" >/dev/null 2>&1
-adb -s $DEVICE_ID shell su -c "setprop debug.nmap.ram none" >/dev/null 2>&1
-
-if [ "$RANDOM_MODE" = true ]; then
-    NEW_SSAID=$(cat /dev/urandom | tr -dc 'a-f0-9' | fold -w 16 | head -n 1)
-    NEW_IDFV=$(cat /proc/sys/kernel/random/uuid)
-    NEW_ADID=$(cat /proc/sys/kernel/random/uuid)
-    adb -s $DEVICE_ID shell su -c "setprop debug.nmap.ssaid $NEW_SSAID"
-    adb -s $DEVICE_ID shell su -c "setprop debug.nmap.idfv $NEW_IDFV"
-    adb -s $DEVICE_ID shell su -c "setprop debug.nmap.adid $NEW_ADID"
-fi
-
-if [ "$DEVICE_MODE" = true ]; then
-    echo "[-] Picking Random Device Profile..."
-    DEVICE_FILES=($(ls lib/data/devices/*.json))
-    SELECTED_FILE=${DEVICE_FILES[$(( RANDOM % ${#DEVICE_FILES[@]} ))]}
-    COMMANDS=$(python3 -c "
-import json, random, sys
-with open('$SELECTED_FILE') as f:
-    p = json.load(f)
-hw = random.choice(p['hardware_options'])
-sw = random.choice(p['software_versions'])
-props = {'model': p['model'], 'brand': p['brand'], 'osver': sw['osver'], 'build_id': sw['build_id'], 'display_id': sw['display_id'], 'density': p['display']['density'], 'width': p['display']['width'], 'height': p['display']['height'], 'storage': hw['storage_gb'], 'ram': hw['ram_gb']}
-for k, v in props.items():
-    print(f'adb -s $DEVICE_ID shell su -c \"setprop debug.nmap.{k} \\\"{v}\\\"\"')
-")
-    eval "$COMMANDS"
-    P_MODEL=$(adb -s $DEVICE_ID shell getprop debug.nmap.model)
-    echo "    [✓] Profile Loaded: $P_MODEL"
 fi
 
 # [5] Network Mode

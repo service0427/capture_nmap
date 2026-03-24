@@ -18,12 +18,11 @@ __pycache__/
 .DS_Store
 .idea/
 
-# Development Screenshots
-dev/screenshots/
-dev/debug_view.xml
-dev/view.xml
-dev/nmap_list.xml
-dev/settings_bottom.xml
+# Development (개발/분석용 — git 제외)
+dev/
 
 # Local Memory
 .bkit/
+
+# Route Library (런타임 생성)
+route_library/

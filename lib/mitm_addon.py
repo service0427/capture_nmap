@@ -98,14 +98,41 @@ class TrafficRecorder:
     ]
 
     def request(self, flow: http.HTTPFlow):
-        """Global Sanitizer: Outgoing Header Filter"""
-        if "User-Agent" in flow.request.headers:
-            ua = flow.request.headers["User-Agent"]
-            # 리얼 기기 식별 문자열이 포함된 경우 강제 치환
-            if "SM-A165N" in ua:
-                # 패턴 기반 치환 (삼각형 가드)
-                new_ua = ua.replace("SM-A165N", "Pixel-7")
-                flow.request.headers["User-Agent"] = new_ua
+        """Global Sanitizer: ADID 치환 + UA Filter"""
+        spoofed_adid = os.environ.get("NMAP_SPOOFED_ADID", "")
+        
+        if spoofed_adid:
+            path = flow.request.path
+            
+            # GFP URL의 ai= 파라미터 치환 (UUID 형식)
+            if "gfp/v1" in path and "ai=" in path:
+                import re
+                original_ai = re.search(r'ai=([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})', path)
+                if original_ai and original_ai.group(1) != spoofed_adid:
+                    old_id = original_ai.group(1)
+                    flow.request.path = path.replace(old_id, spoofed_adid)
+                    flow.request.url = flow.request.url.replace(old_id, spoofed_adid)
+            
+            # Heartbeat/nlogapp body의 adid 치환
+            if flow.request.content and ("nlogapp" in path or "heartbeat" in path):
+                try:
+                    body_text = flow.request.content.decode('utf-8')
+                    body_json = json.loads(body_text)
+                    changed = False
+                    if isinstance(body_json, dict):
+                        for key in list(body_json.keys()):
+                            if key == "adid" and body_json[key] != spoofed_adid:
+                                body_json[key] = spoofed_adid
+                                changed = True
+                        # body.body 등 중첩도 처리
+                        if "body" in body_json and isinstance(body_json["body"], dict):
+                            if "adid" in body_json["body"] and body_json["body"]["adid"] != spoofed_adid:
+                                body_json["body"]["adid"] = spoofed_adid
+                                changed = True
+                    if changed:
+                        flow.request.content = json.dumps(body_json).encode('utf-8')
+                except Exception:
+                    pass
 
     def response(self, flow: http.HTTPFlow):
         host = flow.request.pretty_host
