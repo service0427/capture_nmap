@@ -113,6 +113,15 @@ echo "============================================================"
 echo "   NAVER MAP SIMULATOR (v3.0 Stable - ORIGINAL)"
 echo "============================================================"
 
+# [0] Frida Server 자동 관리 (없으면 시작, 있으면 유지)
+FRIDA_RUNNING=$(adb -s $DEVICE_ID shell su -c "ps -A 2>/dev/null | grep frida-server")
+if [ -z "$FRIDA_RUNNING" ]; then
+    echo "[-] Starting Frida Server..."
+    adb -s $DEVICE_ID shell su -c "killall re.frida.helper 2>/dev/null; killall frida-server 2>/dev/null; sleep 1; /data/local/tmp/frida-server -D &"
+    sleep 2
+    echo "[✓] Frida Server Started."
+fi
+
 # [1] IP Rotation
 if [ "$NEW_IP" = true ]; then
     echo "[-] Toggling Airplane Mode..."
