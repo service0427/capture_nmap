@@ -1,0 +1,180 @@
+{
+    "model": "SM-M536S",
+    "name": "Galaxy M53 5G",
+    "brand": "samsung",
+    "display": {
+        "width": "1080",
+        "height": "2408",
+        "density": "2.46"
+    },
+    "hardware_options": [
+        {
+            "ram_gb": "6",
+            "storage_gb": "128"
+        }
+    ],
+    "software_versions": [
+        {
+            "osver": "16",
+            "build_date": "20250925223031",
+            "build_id": "BP1A.250901.001",
+            "display_id": "M536SKSUBGYI4"
+        },
+        {
+            "osver": "16",
+            "build_date": "20251022180611",
+            "build_id": "BP1A.251001.002",
+            "display_id": "M536SKSSBGYJ1"
+        },
+        {
+            "osver": "16",
+            "build_date": "20251231145311",
+            "build_id": "BP1A.260101.003",
+            "display_id": "M536SKSSCGYL1"
+        },
+        {
+            "osver": "16",
+            "build_date": "20260214035751",
+            "build_id": "BP1A.260214.004",
+            "display_id": "M536SKSSDGZB6"
+        },
+        {
+            "osver": "15",
+            "build_date": "20250602185131",
+            "build_id": "VP1A.250401.001",
+            "display_id": "M536SKSUAFYE4"
+        },
+        {
+            "osver": "15",
+            "build_date": "20250711075130",
+            "build_id": "VP1A.250701.002",
+            "display_id": "M536SKSSBFYG1"
+        },
+        {
+            "osver": "14",
+            "build_date": "20231206144141",
+            "build_id": "UP1A.231201.001",
+            "display_id": "M536SKSU4DWL1"
+        },
+        {
+            "osver": "14",
+            "build_date": "20240118081321",
+            "build_id": "UP1A.231201.002",
+            "display_id": "M536SKSS4DXA1"
+        },
+        {
+            "osver": "14",
+            "build_date": "20240305130140",
+            "build_id": "UP1A.240301.003",
+            "display_id": "M536SKSS5DXC1"
+        },
+        {
+            "osver": "14",
+            "build_date": "20240516090910",
+            "build_id": "UP1A.240501.004",
+            "display_id": "M536SKSU6EXE3"
+        },
+        {
+            "osver": "14",
+            "build_date": "20240610093321",
+            "build_id": "UP1A.240501.005",
+            "display_id": "M536SKSU6EXF1"
+        },
+        {
+            "osver": "14",
+            "build_date": "20240806121830",
+            "build_id": "UP1A.240801.006",
+            "display_id": "M536SKSS7EXH1"
+        },
+        {
+            "osver": "14",
+            "build_date": "20241015082851",
+            "build_id": "UP1A.241001.007",
+            "display_id": "M536SKSS8EXJ1"
+        },
+        {
+            "osver": "14",
+            "build_date": "20241030082451",
+            "build_id": "UP1A.241101.008",
+            "display_id": "M536SKSS9EXJ2"
+        },
+        {
+            "osver": "14",
+            "build_date": "20250206120741",
+            "build_id": "UP1A.250201.009",
+            "display_id": "M536SKSS9EYB1"
+        },
+        {
+            "osver": "14",
+            "build_date": "20250407144431",
+            "build_id": "UP1A.250401.010",
+            "display_id": "M536SKSSAEYD1"
+        },
+        {
+            "osver": "13",
+            "build_date": "20221118225100",
+            "build_id": "TP1A.221101.001",
+            "display_id": "M536SKSU1BVK4"
+        },
+        {
+            "osver": "13",
+            "build_date": "20230118151140",
+            "build_id": "TP1A.230101.002",
+            "display_id": "M536SKSU2BWA2"
+        },
+        {
+            "osver": "13",
+            "build_date": "20230215132921",
+            "build_id": "TP1A.230201.003",
+            "display_id": "M536SKSU2CWB3"
+        },
+        {
+            "osver": "13",
+            "build_date": "20230601122201",
+            "build_id": "TP1A.230501.004",
+            "display_id": "M536SKSU3CWF1"
+        },
+        {
+            "osver": "13",
+            "build_date": "20230823174830",
+            "build_id": "TP1A.230801.005",
+            "display_id": "M536SKSU4CWH2"
+        },
+        {
+            "osver": "13",
+            "build_date": "20231110084541",
+            "build_id": "TP1A.231001.006",
+            "display_id": "M536SKSS4CWK2"
+        },
+        {
+            "osver": "12",
+            "build_date": "20220504181750",
+            "build_id": "SP1A.220301.001",
+            "display_id": "M536SKSU1AVE2"
+        },
+        {
+            "osver": "12",
+            "build_date": "20220524080000",
+            "build_id": "SP1A.220501.002",
+            "display_id": "M536SKSU1AVEB"
+        },
+        {
+            "osver": "12",
+            "build_date": "20220629172011",
+            "build_id": "SP1A.220701.003",
+            "display_id": "M536SKSU1AVF8"
+        },
+        {
+            "osver": "12",
+            "build_date": "20220727224150",
+            "build_id": "SP1A.220801.004",
+            "display_id": "M536SKSU1AVG6"
+        },
+        {
+            "osver": "12",
+            "build_date": "20220921184711",
+            "build_id": "SP1A.220801.005",
+            "display_id": "M536SKSU1AVI2"
+        }
+    ]
+}
